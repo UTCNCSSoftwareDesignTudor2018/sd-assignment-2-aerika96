@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Student</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body>
+<div class="nav-wrapper">
+       <nav class="nav-menu">
+          <ul class="clearfix">
+             <li><a href = "/teacher_data">User data</a></li>
+             <li><a href="/gen_report/courses">My courses</a></li>
+          </ul>
+       </nav>
+    </div>
+	<div class="container">
+      <div class="page-header" id="banner">
+        <div class="row">
+          <div class="col-lg-8 col-md-7 col-sm-6">
+		  <h1>Taught Courses</h1>
+			
+			<form th:action="@{/gen_report/specific_course}" enctype="multipart/form-data" >
+				<select name="courseId">
+				<option th:each="course : ${myCourses}" 
+					th:value="${course.courseId}" 
+					th:text="${course.courseName}">Course</option>
+				</select>
+				<input type="submit" value="Grade"/>
+			</form>
+			
+			
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+</body>
+</html>

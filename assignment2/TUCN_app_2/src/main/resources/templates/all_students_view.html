@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Student</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body>
+<div class="nav-wrapper">
+       <nav class="nav-menu">
+          <ul class="clearfix">
+             <li><a href = "/teacher_data">User data</a></li>
+             <li><a href = "/gen_report/courses">My courses</a></li>
+			 <li><a href = "/list_students">Students</a></li>
+          </ul>
+       </nav>
+    </div>
+	<div class="container">
+      <div class="page-header" id="banner">
+        <div class="row">
+          <div class="col-lg-8 col-md-7 col-sm-6">
+		  <h1>Active Students</h1>
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Student identifier</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Group</th>
+					</tr>
+				</thead>
+				<tbody>
+					 <tr th:each="student : ${ allStudents }">
+						<td th:text="${ student.studentIdentifier }"></td>
+						<td th:text="${ student.user.firstName }"></td>
+						<td th:text="${ student.user.lastName }"></td>
+						<td th:text="${ student.groupId }"></td>
+						
+					</tr>
+					
+					
+<!-- 				<td>
+					<a class="btn btn-warning btn-xs" href="admin/movieEdit.html" th1:href="@{/admin/movieEdit(id=${movie.id})}">Edit</a>
+					<a class="btn btn-danger btn-xs" href="admin/movieDelete.html" th1:href="@{/admin/movieDelete(id=${movie.id})}">Delete</a>
+				</td>
+ -->			
+				</tbody>
+				
+			</table>
+			
+			
+			
+<form   th:object="${newStudent}" method="post">
+    <div class="col-sm-12">
+        <label>Student Identifier</label>
+        <input placeholder="Student ID" name="studentIdentifier"/>
+    </div>
+ 
+    <div class="col-sm-12">
+        <label>Group</label>
+        <input placeholder="Group" name="groupId"/>
+    </div>
+
+    <button type="submit" class = "btn btn-primary">ADD Student</button>
+</form>
+
+			
+			
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+</body>
+</html>

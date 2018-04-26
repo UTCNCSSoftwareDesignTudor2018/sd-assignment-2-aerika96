@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Student</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body>
+	<div class="container">
+      <div class="page-header" id="banner">
+        <div class="row">
+          <div class="col-lg-8 col-md-7 col-sm-6">
+            <h1>Student</h1>
+			
+			Username: <span th:text="${developer.firstName + ' ' + developer.lastName}" />
+
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Detail</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<td> Firstname </th>
+					<td th:text = "${student/show_user_data/{id}.firstName (id=1)}"> 
+				</tbody>
+			</table>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Student</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<link rel="stylesheet" href="/bootstrap.min.css" media="screen"/>
+</head>
+<body>
+<div class="nav-wrapper">
+       <nav class="nav-menu">
+          <ul class="clearfix">
+             <li><a href="/user_data">User data</a></li>
+             <li><a href="/student_data">Student data</a></li>
+			 <li><a href="/enrollment">Enrollment</a></li>
+			 <li><a href="/grading">Grades</a></li>
+          </ul>
+       </nav>
+    </div>
+	<div class="container">
+      <div class="page-header" id="banner">
+        <div class="row">
+          <div class="col-lg-8 col-md-7 col-sm-6">
+		  <h1>Grades</h1>
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Course</th>
+						<th>Grade</th>
+					</tr>
+				</thead>
+				<tbody>
+					 <tr th:each="grade : ${ gradesShown }">
+						<td th:text="${ grade.course.courseName }"></td>
+						<td th:text="${ grade.mark }"></td>
+						
+					</tr>
+					
+					
+<!-- 				<td>
+					<a class="btn btn-warning btn-xs" href="admin/movieEdit.html" th1:href="@{/admin/movieEdit(id=${movie.id})}">Edit</a>
+					<a class="btn btn-danger btn-xs" href="admin/movieDelete.html" th1:href="@{/admin/movieDelete(id=${movie.id})}">Delete</a>
+				</td>
+ -->			
+				</tbody>
+				
+			</table>
+			
+			
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+</body>
+</html>
